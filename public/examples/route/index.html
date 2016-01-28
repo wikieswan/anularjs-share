@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8" >
+	<title>route - angularjs share</title>
+	
+</head>
+<body>
+	<h1>angularjs route 例子</h1>
+	<ul>
+		<li><a href="#home">首页</a></li>
+		<li><a href="#about">简介</a></li>
+		<li><a href="#connect">联系</a></li>
+	</ul>
+	<div ui-view></div>
+	
+
+</body>
+</html>
+<script type="text/javascript" src="/assets/angular.min.js"></script>
+<script type="text/javascript" src="/assets/angular-ui-router.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controllers/home.js"></script>
+<script type="text/javascript" src="controllers/about.js"></script>
+<script type="text/javascript" src="controllers/connect.js"></script>

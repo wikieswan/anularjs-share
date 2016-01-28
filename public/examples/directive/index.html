@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8" >
+	<title>directive - angularjs share</title>
+	<style type="text/css">
+	.btn{
+		padding: 5px 40px ;
+		font-size: 16px;
+		background: #ccc;
+		border-radius: 5px;
+		border: 1px solid #aaa;
+	}
+	.btn-star{
+		border: 1px solid #0AA7EC;
+		background: #7ECBED;
+	}
+	.btn-star:hover{
+		border: 1px solid #9DD4EC;
+		background: #B4DAEA;
+	}
+	</style>
+</head>
+<body>
+	<h1>angularjs directive 例子</h1>
+	
+	
+
+	<div ng-controller="directiveController">
+		<img ng-src="{{userImg}}" alt="头像" height="200px" width="150px" />
+		<p>给 {{username}} 点赞</p>
+		<stardirective userid="{{userid}}"></stardirective>
+	</div>
+
+</body>
+</html>
+<script type="text/javascript" src="/assets/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>

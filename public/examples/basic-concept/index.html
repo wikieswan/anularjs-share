@@ -1,0 +1,118 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8" >
+	<title>angularjs share</title>
+	
+</head>
+<body>
+	<h1>以下是 $rootScope 中 message 信息</h1>
+	<p>{{message}}</p>
+	<hr>
+
+	<div ng-controller="helloController">
+		<h2>以下是 helloController 中 message 信息</h2>
+		<p>{{message}}</p>
+	</div>
+	<hr>
+
+	<div ng-controller="mutilscopeController">
+		<h2>各种数据类型的$scope绑定</h2>
+
+		<h3>string</h3>
+		<p>姓名 {{username}}</p>
+
+		<h3>boolean</h3>
+		<p>他高吗 {{isTall}}</p>
+
+		<h3>number</h3>
+		<p>年龄 {{userage}}</p>
+
+		<h3>function</h3>
+		<button ng-click="showGileFriend()">点击查看他的女友</button>
+
+		<h3>object</h3>
+		<p>{{info}}</p>
+		<p>性别 {{info.sex}}</p>
+		<p>家乡 {{info.address.hometown}}</p>
+		<p>住址 {{info.address.address}}</p>
+
+		<h3>array</h3>
+		<p>可以追求的人</p>
+		<ul>
+			<li ng-repeat="item in targets">{{item}}</li>
+		</ul>
+
+		<h3>图片绑定</h3>
+		<img ng-src="{{userImg}}" alt="头像" height="200px" width="150px" />
+
+		<h3>错误的方式——图片绑定，虽然显示出来了，但是控制台报错了一次</h3>
+		<img src="{{userImg}}" alt="头像" height="200px" width="150px" />
+
+		<h3>a标签绑定</h3>
+		<a href="{{blogUrl}}" target="_blank">他的知乎主页</a>
+	</div>
+	<hr>
+
+	<div ng-controller="counterController">
+		<h2>这是一个计数器</h2>
+		<p>累计次数 {{counter}}</p>
+		<button ng-click="add()">add 1 </button>
+		<button ng-click="sub()">sub 1 </button>
+	</div>
+	<hr>
+
+	<div ng-controller="nameController">
+		<p>输入你的姓名</p>
+		<input type="text" ng-model="name">
+		<p>hello {{name}}</p>
+	</div>
+	<hr>
+
+	<div ng-controller="domainController">
+		<p>作用域测试 1 $scope vs $rootScope</p>
+		<p>{{message}}</p>
+		<p>{{name}}</p>
+	</div>
+
+	<div ng-controller="parentController" style="background:#dff2d9">
+		<p>作用域测试 2 嵌套</p>
+		<p>父级 parentController</p>
+		<p>姓名： {{username}}</p>
+		<p>年龄： {{userage}}</p>
+		<p>性别： {{usersex}}</p>
+		<div ng-controller="childController" style="margin-left:30px;background:#f4e5e5">
+			<p>子级 childController</p>
+			<p>一年后的他</p>
+			<p>姓名： {{username}}</p>
+			<p>年龄： {{userage}}</p>
+			<p>性别： {{usersex}}</p>
+		</div>
+	</div>
+	<hr>
+
+	<div ng-controller="expressionController">
+		<h2>表达式测试</h2>
+		<p> {{'hello ' + username}} </p>
+		<p>一年后他的年龄 {{userage + 1}} </p>
+		<p>他是男的吗 {{usersex==='男'}} </p>
+	</div>
+	<hr>
+
+	<div ng-controller="filterController">
+		<h2>过滤器例子</h2>
+		<p>过滤器前： {{dataTime}} </p>
+		<p>过滤器后 12小时制： {{dataTime | date:'yyyy-MM-dd hh:mm:ss'}} </p>
+		<p>过滤器后 24小时制： {{dataTime | date:'yyyy-MM-dd HH:mm:ss'}} </p>
+
+		<p>订单金额 {{orderAmount | number:2}} 元</p>
+		<h3>自定义filter</h3>
+		<p>拒退率  {{rejeckRate | toPercent }} </p>
+		<p>拒退率  {{rejeckRate | toPercent:2 }} </p>
+	</div>
+
+
+</body>
+</html>
+<script type="text/javascript" src="/assets/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
